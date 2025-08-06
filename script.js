@@ -80,6 +80,9 @@ function renderBooks() {
         buttonsDiv.appendChild(deleteButton);
         newBook.appendChild(buttonsDiv);
 
+        // Set ID on card
+        newBook.setAttribute("id", book.uuid);
+
         // Push to page
         container.appendChild(newBook);
     } 
