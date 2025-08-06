@@ -15,5 +15,7 @@ function addBookToLibrary(title, author, date, pages, read) {
 }
 
 function renderBooks() {
-
+    for (const book of myLibrary) {
+        console.log(book);
+    }
 }
