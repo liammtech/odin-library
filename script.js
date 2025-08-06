@@ -1,16 +1,17 @@
 const myLibrary = [];
 
-function Book(title, author, date, pages, read) {
+function Book(title, author, date, genre, pages, read) {
     this.title = title;
     this.author = author;
     this.date = date;
+    this.genre = genre
     this.pages = pages;
     this.read = read;
     this.uuid = crypto.randomUUID();
 }
 
-function addBookToLibrary(title, author, date, pages, read) {
-    let newBook = new Book(title, author, date, pages, read);
+function addBookToLibrary(...args) {
+    let newBook = new Book(...args);
     myLibrary.push(newBook);
 }
 

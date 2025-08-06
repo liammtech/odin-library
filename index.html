@@ -8,6 +8,39 @@
     <title>Library</title>
 </head>
 <body>
-    
+    <header>
+        <h1>TOP Library</h1>
+        <button id="button-new-book">Add new book</button>
+        <img id="img-bookshelf" src="/assets/images/bookshelf.svg">
+    </header>
+    <main>
+        <h2>Books</h2>
+        <section id="books-list">
+            <div class="book-entry">
+                <img src="assets/svg/science-fiction.svg">
+                <h3 class="field-title">The Flogrons of Atlassia</h3>
+                <p class="field-author">Marcus Scificius</p>
+                <p class="field-year">2032</p>
+                <p class="field-pages">742 pages</p>
+                <p class="field-genre">Science Fiction</p>
+                <div class="book-entry-buttons">
+                    <button class="toggle-read-status book-read">Read ✔</button>
+                    <button class="delete-book-entry">Delete</button>
+                </div>
+            </div>
+            <div class="book-entry">
+                <img src="assets/svg/romance.svg">
+                <h3 class="field-title">My Neighbour's Keeper</h3>
+                <p class="field-author">Julia Romanticus</p>
+                <p class="field-year">2001</p>
+                <p class="field-pages">280 pages</p>
+                <p class="field-genre">Romance</p>
+                <div class="book-entry-buttons">
+                    <button class="toggle-read-status book-read">Not Read 🛇</button>
+                    <button class="delete-book-entry">Delete</button>
+                </div>
+            </div>
+        </section>
+    </main>
 </body>
 </html>
