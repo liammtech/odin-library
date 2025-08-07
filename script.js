@@ -5,6 +5,11 @@ let genres = {};
 const genresPromise = fetch('./json/genres.json')
     .then(res => res.json());
 
+const newBookButton = document.getElementById("button-new-book");
+const dialog = document.getElementById("new-book-modal");
+
+newBookButton.addEventListener("click", e => dialog.showModal())
+
 function Book(title, author, year, genre, pages, read) {
     this.title = title;
     this.author = author;
@@ -156,4 +161,3 @@ for (let i in myLibrary) {
 }
 
 init()
-

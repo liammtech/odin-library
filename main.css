@@ -7,9 +7,14 @@ h1 {
     margin: 0;
 }
 
-h2 {
+main > h2 {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin: 1.5rem 0 0 15rem;
+    color: #292929
+}
+
+dialog > h2 {
+    margin: 0;
     color: #292929
 }
 
@@ -147,3 +152,14 @@ button:active {
     color: #ffffff
 }
 
+#new-book-modal {
+    border: none;
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+::backdrop {
+    background-color: #292929;
+    opacity: 0.2;
+}
