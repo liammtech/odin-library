@@ -81,12 +81,14 @@ function renderBooks() {
             readButton.classList.add("book-not-read");
             readButton.textContent = "Not Read 🛇"
         }
+        readButton.addEventListener("click", e => toggleReadStatus(book.uuid));
         buttonsDiv.appendChild(readButton);
 
         // Delete button
         let deleteButton = document.createElement("button");
         deleteButton.classList.add("delete-book-entry");
         deleteButton.textContent = "Delete Book"
+        deleteButton.addEventListener("click", e => deleteBook(book.uuid));
         buttonsDiv.appendChild(deleteButton);
         newBook.appendChild(buttonsDiv);
 
