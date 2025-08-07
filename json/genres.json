@@ -1,0 +1,10 @@
+{
+    "Adventure": "/assets/svg/adventure.svg",
+    "Biography": "/assets/svg/biography.svg",
+    "Comedy": "/assets/svg/comedy.svg",
+    "Fantasy": "/assets/svg/fantasy.svg",
+    "Horror": "/assets/svg/horror.svg",
+    "Mystery": "/assets/svg/mystery.svg",
+    "Romance": "/assets/svg/romance.svg",
+    "Science Fiction": "/assets/svg/science-fiction.svg"
+}

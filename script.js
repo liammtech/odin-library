@@ -1,5 +1,19 @@
 const myLibrary = [];
 
+fetch('./json/genres.json')
+    .then((response) => response.json())
+    .then((json) => console.log(json));
+
+let genres = {};
+
+fetch('./json/genres.json')
+    .then((response) => response.json())
+    .then((json) => {
+        genres = json;
+        // Optional: trigger something after loading
+        console.log('Genres loaded:', genres);
+    });
+
 function Book(title, author, year, genre, pages, read) {
     this.title = title;
     this.author = author;
@@ -24,7 +38,7 @@ function renderBooks() {
 
         // SVG icon
         let svg = document.createElement("img");
-        svg.setAttribute("src", "assets/svg/science-fiction.svg");
+        svg.setAttribute("src", getGenreIcon(book.genre));
         newBook.appendChild(svg);
 
         // Title
@@ -88,6 +102,10 @@ function renderBooks() {
     } 
 }
 
+function getGenreIcon(genreName) {
+    return genres[genreName];
+}
+
 addBookToLibrary(
     "The Flogrons of Atlassia",
     "Marcus Scificius",
@@ -104,6 +122,15 @@ addBookToLibrary(
     "Romance",
     280,
     false
+)
+
+addBookToLibrary(
+    "Gremlin Roger",
+    "Merlin Mercius",
+    2020,
+    "Fantasy",
+    1800,
+    true
 )
 
 renderBooks()
