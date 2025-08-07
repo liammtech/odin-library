@@ -1,18 +1,9 @@
 const myLibrary = [];
 
-fetch('./json/genres.json')
-    .then((response) => response.json())
-    .then((json) => console.log(json));
-
 let genres = {};
 
-fetch('./json/genres.json')
-    .then((response) => response.json())
-    .then((json) => {
-        genres = json;
-        // Optional: trigger something after loading
-        console.log('Genres loaded:', genres);
-    });
+const genresPromise = fetch('./json/genres.json')
+    .then(res => res.json());
 
 function Book(title, author, year, genre, pages, read) {
     this.title = title;
@@ -29,8 +20,13 @@ function addBookToLibrary(...args) {
     myLibrary.push(newBook);
 }
 
+function getGenreIcon(genreName) {
+    return genres[genreName];
+}
+
 function renderBooks() {
-    const container = document.querySelector("#books-list")
+    const container = document.querySelector("#books-list");
+    container.innerHTML = null;
 
     for (const book of myLibrary) {
         let newBook = document.createElement("div");
@@ -102,8 +98,13 @@ function renderBooks() {
     } 
 }
 
-function getGenreIcon(genreName) {
-    return genres[genreName];
+function deleteBook(bookId) {
+    for (let i in myLibrary) {
+        if (bookId === myLibrary[i].uuid) {
+            myLibrary.splice(i, 1);
+            renderBooks()
+        }
+    }
 }
 
 addBookToLibrary(
@@ -133,4 +134,15 @@ addBookToLibrary(
     true
 )
 
-renderBooks()
+async function init() {
+    const res = await fetch('./json/genres.json');
+    genres = await res.json();
+    renderBooks();
+}
+
+for (let i in myLibrary) {
+    console.log(myLibrary[i].uuid)
+}
+
+init()
+
