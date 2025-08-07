@@ -107,6 +107,15 @@ function deleteBook(bookId) {
     }
 }
 
+function toggleReadStatus(bookId) {
+    for (let i in myLibrary) {
+        if (bookId === myLibrary[i].uuid) {
+            myLibrary[i].read ? myLibrary[i].read = false : myLibrary[i].read = true;
+            renderBooks()
+        }
+    }
+}
+
 addBookToLibrary(
     "The Flogrons of Atlassia",
     "Marcus Scificius",
