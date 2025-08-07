@@ -6,7 +6,6 @@ const genresPromise = fetch('./json/genres.json')
     .then(res => res.json());
 
 const newBookButton = document.getElementById("button-new-book");
-const dialog = document.getElementById("new-book-modal");
 
 newBookButton.addEventListener("click", e => dialog.showModal())
 
@@ -159,5 +158,27 @@ async function init() {
 for (let i in myLibrary) {
     console.log(myLibrary[i].uuid)
 }
+
+// New book modal
+
+submitButton = document.getElementById("form-submit");
+const dialog = document.getElementById('new-book-modal');
+const form = document.getElementById('new-book-form');
+
+submitButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    addBookToLibrary(
+        form.title.value,
+        form.author.value,
+        form.year.value,
+        form.genre.value,
+        form.pages.value,
+        form.read.checked
+    );
+
+    renderBooks();
+    form.reset();
+    dialog.close();
+});
 
 init()
